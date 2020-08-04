@@ -103,7 +103,4 @@ public class Fatura {
 				+ valorConta + "]";
 	}
 
-	
-
-
 }

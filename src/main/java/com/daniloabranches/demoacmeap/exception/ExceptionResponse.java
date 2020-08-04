@@ -7,9 +7,6 @@ public class ExceptionResponse {
 	private String mensagem;
 	private String detalhes;
 	
-	
-	
-	
 	public ExceptionResponse(Date timestamp, String mensagem, String detalhes) {
 		super();
 		this.timestamp = timestamp;
@@ -20,23 +17,25 @@ public class ExceptionResponse {
 	public Date getTimestamp() {
 		return timestamp;
 	}
+	
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
+	
 	public String getMensagem() {
 		return mensagem;
 	}
+	
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
+	
 	public String getDetalhes() {
 		return detalhes;
 	}
+	
 	public void setDetalhes(String detalhes) {
 		this.detalhes = detalhes;
-	}
-	
-	
-	
+	}	
 	
 }

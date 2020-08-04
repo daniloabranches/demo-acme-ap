@@ -2,7 +2,6 @@ package com.daniloabranches.demoacmeap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import springfox.documentation.service.ApiInfo;
@@ -14,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class DemoMonoliticaSwagger2 {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(DemoMonoliticaSwagger2.class, args);
+		SpringApplication.run(DemoMonoliticaSwagger2.class, args);
 	}
 
 	@Bean

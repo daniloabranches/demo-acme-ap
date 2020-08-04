@@ -11,7 +11,5 @@ import com.daniloabranches.demoacmeap.domain.Instalacao;
 public interface InstalacaoRepository extends JpaRepository<Instalacao, Long> {
 
 	public Optional<Instalacao> findByCodigo(String codigo);
-	public List<Instalacao> findByCliente(Cliente cliente);
-	
-	
+	public List<Instalacao> findByCliente(Cliente cliente);	
 }

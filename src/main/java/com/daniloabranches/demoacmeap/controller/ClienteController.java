@@ -7,7 +7,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,34 +28,28 @@ import io.swagger.annotations.ApiOperation;
 public class ClienteController {
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
-	
+	private ClienteRepository clienteRepository;	
 	
 	@ApiOperation(value = "Exibe a lista de clientes")
 	//Controle de versão explicito na URI
 	@GetMapping("v1/clientes")
 	public List<Cliente> getAllClientes()
-	{
-		
+	{		
 		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 		try {
 			listaClientes = (ArrayList<Cliente>) clienteRepository.findAll();
 		} catch (Exception e) {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("Erro ao recuperar lista de clientes");
-		}
-		
+		}		
 			
 		return listaClientes;
 	}
-	
-	
 	
 	@ApiOperation(value = "Consulta um cliente pelo CPF")
 	@GetMapping("v1/clientes/{cpf}")
 	public Optional<Cliente> getClienteByCpf(@PathVariable String cpf)
 	{
-
 		Optional<Cliente> cliente = null;
 		
 		try {
@@ -69,12 +62,8 @@ public class ClienteController {
 			throw new RecursoNotFoundException ("CPF inválido - " + cpf);
 		}
 		
-		
-		
 		return cliente;
 	}
-	
-
 	
 	@ApiOperation(value = "Cadastrar um novo cliente")
 	@PostMapping("v1/clientes")
@@ -85,7 +74,6 @@ public class ClienteController {
 		
 		URI location = null;
 		
-		
 		try {
 			clienteCriado = clienteRepository.save(cliente);
 			
@@ -95,8 +83,5 @@ public class ClienteController {
 			throw new RecursoNotFoundException ("Erro ao cadastrar cliente CPF: " + cliente.getCpf());
 		}
 		return ResponseEntity.created(location).build();
-	}
-
-	
-	
+	}	
 }

@@ -53,7 +53,6 @@ public class FaturaController {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("Erro ao recuperar faturas");
 		}
-		
 
 		return listaFaturas;
 	}
@@ -61,7 +60,6 @@ public class FaturaController {
 	@ApiOperation(value = "Consulta uma fatura pelo código")
 	@GetMapping("v1/faturas/{codigo}")
 	public Optional<Fatura> getFatura(@PathVariable String codigo) {
-
 		Optional<Fatura> fatura = null;
 		
 		try {
@@ -72,7 +70,6 @@ public class FaturaController {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("codigo de fatura inválido - " + codigo);
 		}
-		
 		
 		return fatura;
 	}
@@ -94,7 +91,6 @@ public class FaturaController {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("CPF inválido - " + cpf);
 		}
-		
 
 		List<Fatura> listaFaturasCliente = new ArrayList<Fatura>();
 
@@ -127,11 +123,8 @@ public class FaturaController {
 		} catch (Exception e) {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("Erro ao gerar fatura para a instalacao - " + fatura.getInstalacao().getCodigo());
-		}
-	
-				
+		}		
 		
 		return ResponseEntity.created(location).build();
 	}
-
 }

@@ -33,15 +33,13 @@ public class InstalacaoController {
 	private InstalacaoRepository instalacaoRepository;
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
-	
+	private ClienteRepository clienteRepository;	
 	
 	@ApiOperation(value = "Mostra a lista de instalações")
 	//Controle de versão explicito na URI
 	@GetMapping("v1/instalacoes")
 	public List<Instalacao> getAllInstalacoes()
 	{
-		
 		ArrayList<Instalacao> listaInstalacoes = new ArrayList<Instalacao>();
 		
 		try {
@@ -50,17 +48,14 @@ public class InstalacaoController {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("Erro ao recuperar lista de instalações");
 		}
-		
 			
 		return listaInstalacoes;
-	}
-	
+	}	
 	
 	@ApiOperation(value = "Consulta uma instalação pelo código")
 	@GetMapping("v1/instalacoes/{codigo}")
 	public Optional<Instalacao> getInstalacao(@PathVariable String codigo)
 	{
-		
 		Optional<Instalacao> instalacao = null;
 		
 		try {
@@ -79,7 +74,6 @@ public class InstalacaoController {
 	@GetMapping("v1/instalacoes/cpf/{cpf}")
 	public List<Instalacao> getInstalacaoPorCPF(@PathVariable String cpf)
 	{
-		
 		Optional<Cliente> cliente;
 		List<Instalacao> listaInstalacao = null;
 		
@@ -94,8 +88,6 @@ public class InstalacaoController {
 			// TODO: handle exception
 			throw new RecursoNotFoundException ("CPF inválido - " + cpf);
 		}
-		
-
 		
 		return listaInstalacao;
 	}
@@ -126,7 +118,4 @@ public class InstalacaoController {
 		
 		return ResponseEntity.created(location).build();
 	}
-
-	
-	
 }
